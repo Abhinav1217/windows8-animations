@@ -1,4 +1,128 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/boeCNmOCCh-EWFLSfVffDg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'demo-icomoon';
+  src:url('../fonts/demo-icomoon.eot');
+  src:url('../fonts/demo-icomoon.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/demo-icomoon.woff') format('woff'),
+    url('../fonts/demo-icomoon.ttf') format('truetype'),
+    url('../fonts/demo-icomoon.svg#demo-icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
+[data-icon]:before {
+  font-family: 'demo-icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.slidePageInFromLeft{
+  animation: slidePageInFromLeft .8s cubic-bezier(.01,1,.22,.99) 1 0.25s normal forwards;
+  }
+.openpage{ 
+  animation: rotatePageInFromRight 1s cubic-bezier(.66,.04,.36,1.03) 1 normal forwards;
+}
+.slidePageBackLeft{
+  opacity:1; 
+  left:0;
+  animation: slidePageBackLeft .8s ease-out 1 normal forwards;
+}
+.slidePageLeft{
+  opacity:1;
+  transform: rotateY(0) translateZ(0) ; 
+  animation:slidePageLeft .8s ease-out 1 normal forwards;
+}
+.fadeOutback{
+  animation: fadeOutBack 0.3s ease-out 1 normal forwards;
+}
+.fadeInForward-1, .fadeInForward-2, .fadeInForward-3 {
+  opacity:0;
+  transform: translateZ(-5em) scale(0.75);
+  animation: fadeInForward .5s cubic-bezier(.03,.93,.43,.77) .4s normal forwards;
+}
+.fadeInForward-2{
+  animation-delay: .55s;
+}
+.fadeInForward-3{
+  animation-delay: .7s;
+}
+
+
+@keyframes fadeOutBack{
+  0%{transform: translateX(-2em) scale(1); opacity:1;}
+  70% {transform: translateZ(-5em) scale(0.6); opacity:0.5;}
+  95% {transform: translateZ(-5em) scale(0.6); opacity:0.5;}
+  100% {transform: translateZ(-5em) scale(0); opacity:0;}
+}
+
+@keyframes fadeInForward{
+  0%{transform: translateZ(-5em) scale(0); opacity:0;}
+  100% {transform: translateZ(0) scale(1); opacity:1;}
+}
+
+@keyframes rotatePageInFromRight{
+  0% {transform:rotateY(-90deg) translateZ(5em);opacity:0}
+  30%{opacity:1}
+  100%{transform: rotateY(0deg) translateZ(0) ; opacity:1}
+}
+
+@keyframes slidePageLeft{
+  0%{left:0; transform: rotateY(0deg) translateZ(0) ; opacity:1}
+  70%{opacity:1;}
+  100%{opacity:0; left:-150%; transform: rotateY(0deg)}
+}
+
+@keyframes slidePageInFromLeft{
+  0%{opacity:0; }
+  30%{opacity:1}
+  100%{opacity:1; left:0;}
+}
+
+@keyframes slidePageBackLeft{
+  0%{opacity:1; left:0; transform: scale(0.95);}
+  10%{transform: scale(0.9);}
+  70%{opacity:1;}
+  100%{opacity:0; left:-150%;}
+}
+
+/*======================= media queries =======================*/
+
+@media screen and (min-width: 64em){
+  
+  @keyframes fadeInForward{
+    80%{opacity:0.9;}
+    100% {transform: translateZ(0) scale(1) translateX(-2em); opacity:1;}
+  }
+
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 *{
   box-sizing: border-box;
   margin:0;
@@ -309,6 +433,10 @@ ul{
 .cite a{
   color:white;
 }
+
+
+/*======================= media queries =======================*/
+
 
 @media screen and (min-width: 43.75em){/*700px*/
   .col1,.col2,.col3{
